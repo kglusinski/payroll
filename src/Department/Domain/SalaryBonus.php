@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Department\Domain;
 
+use App\Common\MoneyValue;
+
 class SalaryBonus
 {
     public readonly BonusType $bonusType;

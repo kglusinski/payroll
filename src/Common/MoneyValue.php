@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Department\Domain;
+namespace App\Common;
 
 final class MoneyValue
 {
