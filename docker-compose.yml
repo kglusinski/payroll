@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  payroll-db-local:
+    image: public.ecr.aws/docker/library/postgres:14.3
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=payroll
+    volumes:
+      - ./var/pg/bootstrap:/docker-entrypoint-initdb.d
+    command: [ "postgres", "-c", "log_statement=all" ]

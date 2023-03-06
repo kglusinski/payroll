@@ -1,0 +1,6 @@
+version: '3'
+
+services:
+  payroll-db-local:
+    ports:
+      - "5432"
