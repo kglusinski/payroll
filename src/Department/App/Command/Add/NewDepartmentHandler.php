@@ -5,10 +5,10 @@ namespace App\Department\App\Command\Add;
 
 use App\Common\Identity;
 use App\Common\MoneyValue;
+use App\Common\PercentValue;
 use App\Department\Domain\BonusType;
 use App\Department\Domain\Department;
 use App\Department\Domain\DepartmentRepository;
-use App\Department\Domain\PercentValue;
 use App\Department\Domain\SalaryBonus;
 
 class NewDepartmentHandler

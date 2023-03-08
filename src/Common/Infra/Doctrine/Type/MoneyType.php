@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Common\Infra\Doctrine\Type;
 
 use App\Common\MoneyValue;
-use App\Department\Domain\PercentValue;
+use App\Common\PercentValue;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\IntegerType;
 

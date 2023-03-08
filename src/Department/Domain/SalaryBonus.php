@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Department\Domain;
 
 use App\Common\MoneyValue;
+use App\Common\PercentValue;
 
 class SalaryBonus
 {
@@ -13,7 +14,6 @@ class SalaryBonus
 
    private function __construct(BonusType $bonusType, PercentValue|MoneyValue $value)
    {
-
        $this->bonusType = $bonusType;
        $this->value = $value;
    }

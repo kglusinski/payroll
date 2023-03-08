@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Tests\Payroll\Domain\SalaryBonus;
 
 use App\Common\MoneyValue;
-use App\Department\Domain\PercentValue;
+use App\Common\PercentValue;
 use App\Payroll\Domain\SalaryBonus\PercentSalaryBonusStrategy;
 use PHPUnit\Framework\TestCase;
 

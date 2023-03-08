@@ -1,9 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Department\Domain;
-
-use App\Common\IntValue;
+namespace App\Common;
 
 final class PercentValue extends IntValue
 {

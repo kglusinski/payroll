@@ -4,8 +4,6 @@ doctrine:
         types:
             identity: App\Common\Infra\Doctrine\Type\IdentityType
             bonus: App\Common\Infra\Doctrine\Type\BonusTypeType
-            money: App\Common\Infra\Doctrine\Type\MoneyType
-            percent: App\Common\Infra\Doctrine\Type\PercentType
             specialInt: App\Common\Infra\Doctrine\Type\SpecialIntegerType
 
         # IMPORTANT: You MUST configure your server version,
@@ -20,7 +18,11 @@ doctrine:
             Department:
                 type: yml
                 dir: "%kernel.project_dir%/src/Department/Infra/Doctrine/Mapping"
-                prefix: 'App\Department\Domain'
+                prefix: App\Department\Domain
+            Employee:
+                type: yml
+                dir: "%kernel.project_dir%/src/Employee/Infra/Doctrine/Mapping"
+                prefix: App\Employee\Domain
 
 when@test:
     doctrine:

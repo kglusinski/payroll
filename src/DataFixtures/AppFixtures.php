@@ -4,9 +4,10 @@ namespace App\DataFixtures;
 
 use App\Common\Identity;
 use App\Common\MoneyValue;
+use App\Common\PercentValue;
 use App\Department\Domain\Department;
-use App\Department\Domain\PercentValue;
 use App\Department\Domain\SalaryBonus;
+use App\Employee\Domain\Employee;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -23,8 +24,28 @@ class AppFixtures extends Fixture
         $departmentIT->assignSalaryBonus(SalaryBonus::createMoneyBonus(MoneyValue::new(1000)));
         $departmentHR->assignSalaryBonus(SalaryBonus::createPercentBonus(PercentValue::new(20)));
 
+        $employee = new Employee(
+            Identity::new(),
+            "John",
+            "Doe",
+            $departmentIT->getId(),
+            MoneyValue::new(1000),
+            new \DateTimeImmutable()
+        );
+
+        $employee2 = new Employee(
+            Identity::new(),
+            "Jane",
+            "Doe",
+            $departmentHR->getId(),
+            MoneyValue::new(1000),
+            new \DateTimeImmutable()
+        );
+
         $manager->persist($departmentIT);
         $manager->persist($departmentHR);
+        $manager->persist($employee);
+        $manager->persist($employee2);
 
         $manager->flush();
     }
