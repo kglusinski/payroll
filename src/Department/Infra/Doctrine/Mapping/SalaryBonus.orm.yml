@@ -1,0 +1,5 @@
+App\Department\Domain\SalaryBonus:
+  type: embeddable
+  fields:
+    type: { type: string, nullable: false }
+    value: { type: integer, nullable: false, options: { unsigned: true } }

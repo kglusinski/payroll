@@ -21,13 +21,15 @@ class Employee extends AggregateRoot
         string $name,
         string $surname,
         Identity $departmentId,
-        MoneyValue $salary
+        MoneyValue $salary,
+        \DateTimeImmutable $employmentDate
     ) {
         parent::__construct($id);
         $this->name = $name;
         $this->surname = $surname;
         $this->departmentId = $departmentId;
         $this->salary = $salary;
+        $this->employmentDate = $employmentDate;
     }
 
     public function getName(): string

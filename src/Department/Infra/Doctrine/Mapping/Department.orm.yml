@@ -1,0 +1,11 @@
+App\Department\Domain\Department:
+  type: entity
+  repositoryClass: App\Department\Infrastructure\Doctrine\DoctrineDepartmentRepository
+  table: departments
+
+  id:
+    id: { type: uuid, length: 36 }
+  fields:
+    name: { type: string, length: 255 }
+  embedded:
+    salaryBonus: { class: App\Department\Domain\SalaryBonus }
