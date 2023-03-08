@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Department\App\Add;
+namespace App\Department\App\Command\Add;
 
 use App\Common\Identity;
 use App\Common\MoneyValue;

@@ -13,6 +13,7 @@ class SalaryBonus
 
    private function __construct(BonusType $bonusType, PercentValue|MoneyValue $value)
    {
+
        $this->bonusType = $bonusType;
        $this->value = $value;
    }

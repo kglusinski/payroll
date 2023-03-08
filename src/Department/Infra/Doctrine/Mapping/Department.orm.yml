@@ -1,10 +1,10 @@
 App\Department\Domain\Department:
   type: entity
-  repositoryClass: App\Department\Infrastructure\Doctrine\DoctrineDepartmentRepository
+  repositoryClass: App\Department\Infrastructure\Doctrine\ORMDepartmentRepository
   table: departments
 
   id:
-    id: { type: uuid, length: 36 }
+    id: { type: identity, length: 36 }
   fields:
     name: { type: string, length: 255 }
   embedded:

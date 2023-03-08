@@ -1,6 +1,12 @@
 doctrine:
     dbal:
         url: '%env(resolve:DATABASE_URL)%'
+        types:
+            identity: App\Common\Infra\Doctrine\Type\IdentityType
+            bonus: App\Common\Infra\Doctrine\Type\BonusTypeType
+            money: App\Common\Infra\Doctrine\Type\MoneyType
+            percent: App\Common\Infra\Doctrine\Type\PercentType
+            specialInt: App\Common\Infra\Doctrine\Type\SpecialIntegerType
 
         # IMPORTANT: You MUST configure your server version,
         # either here or in the DATABASE_URL env var (see .env file)
@@ -11,11 +17,10 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            App:
-                is_bundle: false
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+            Department:
+                type: yml
+                dir: "%kernel.project_dir%/src/Department/Infra/Doctrine/Mapping"
+                prefix: 'App\Department\Domain'
 
 when@test:
     doctrine:

@@ -5,7 +5,7 @@ namespace App\Common;
 
 abstract class AggregateRoot
 {
-    private Identity $id;
+    protected Identity $id;
 
     public function __construct(Identity $id)
     {

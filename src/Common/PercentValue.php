@@ -3,9 +3,10 @@ declare(strict_types=1);
 
 namespace App\Department\Domain;
 
-final class PercentValue
+use App\Common\IntValue;
+
+final class PercentValue extends IntValue
 {
-    public readonly int $value;
 
     public function __construct(int $value)
     {
@@ -13,7 +14,7 @@ final class PercentValue
             throw new \InvalidArgumentException('Percent value must be between 0 and 100');
         }
 
-        $this->value = $value;
+        parent::__construct($value);
     }
 
     public static function new(int $int): self
