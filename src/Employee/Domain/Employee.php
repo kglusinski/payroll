@@ -14,6 +14,7 @@ class Employee extends AggregateRoot
     private Identity $departmentId;
 
     private MoneyValue $salary;
+    private \DateTimeImmutable $employmentDate;
 
     public function __construct(
         Identity $id,
@@ -52,5 +53,10 @@ class Employee extends AggregateRoot
     public function getSalary(): MoneyValue
     {
         return $this->salary;
+    }
+
+    public function getEmploymentDate(): \DateTimeImmutable
+    {
+        return $this->employmentDate;
     }
 }

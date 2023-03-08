@@ -15,4 +15,14 @@ final class MoneyValue
 
         $this->value = $value;
     }
+
+    public static function new(int $int): self
+    {
+        return new self($int);
+    }
+
+    public function multiply(int|float $multiplier): self
+    {
+        return new self((int) ($this->value * $multiplier));
+    }
 }

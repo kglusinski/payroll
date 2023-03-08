@@ -15,4 +15,14 @@ final class PercentValue
 
         $this->value = $value;
     }
+
+    public static function new(int $int): self
+    {
+        return new self($int);
+    }
+
+    public function getFloatValue(): float
+    {
+        return $this->value / 100;
+    }
 }
