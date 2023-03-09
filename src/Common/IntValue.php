@@ -11,4 +11,9 @@ abstract class IntValue
     {
         $this->value = $value;
     }
+
+    public static function new(int $value): static
+    {
+        return new static($value);
+    }
 }

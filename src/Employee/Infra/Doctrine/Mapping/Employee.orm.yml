@@ -8,6 +8,6 @@ App\Employee\Domain\Employee:
   fields:
     name: { type: string, length: 255 }
     surname: { type: string, length: 255 }
-    salary: { type: specialInt, nullable: true, options: { unsigned: true } }
+    salary: { type: money, nullable: true, options: { unsigned: true } }
     departmentId: { type: identity, length: 36, nullable: true }
-    employmentDate: { type: date, nullable: false }
+    employmentDate: { type: date_immutable, nullable: false }

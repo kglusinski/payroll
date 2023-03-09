@@ -14,7 +14,7 @@ final class MoneyValue extends IntValue
         parent::__construct($value);
     }
 
-    public static function new(int $int): self
+    public static function new(int $int): static
     {
         return new self($int);
     }
