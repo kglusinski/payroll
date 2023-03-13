@@ -1,6 +1,6 @@
 App\Employee\Domain\Employee:
   type: entity
-  repositoryClass: App\Department\Infrastructure\Doctrine\ORMEmployeeRepository
+  repositoryClass: App\Employee\Infra\Doctrine\ORMEmployeeRepository
   table: employees
 
   id:

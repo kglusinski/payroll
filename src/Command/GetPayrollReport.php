@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use App\Common\Identity;
-use App\Employee\App\Query\FindById;
+use App\Payroll\App\Command\CreateReport;
+use App\Payroll\Domain\PayrollReport;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -14,12 +14,12 @@ use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 #[AsCommand(
-    name: 'app:employee:find-by-id',
-    description: 'Find an employee by ID',
-    aliases: ['find'],
+    name: 'app:payroll:get',
+    description: 'Generate and get a payroll report',
+    aliases: ['report'],
     hidden: false,
 )]
-class FindEmployeeByID extends Command
+class GetPayrollReport extends Command
 {
     use HandleTrait;
 
@@ -33,21 +33,20 @@ class FindEmployeeByID extends Command
     {
         $this
             ->setHelp('This command allows you to find an employee by ID')
-            ->addArgument('id', InputArgument::REQUIRED, 'The employee ID')
+            ->addArgument('date', InputArgument::REQUIRED, 'The date of the report in format: Y-m-d')
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $idRaw = $input->getArgument('id');
-        $id = Identity::fromString($idRaw);
-        $employee = $this->handle(new FindById($id));
+        /** @var PayrollReport $report */
+        $report = $this->handle(
+            new CreateReport(
+                \DateTimeImmutable::createFromFormat('Y-m-d', $input->getArgument('date'))
+            )
+        );
 
-        if ($employee) {
-            $output->writeln('Employee found: ' . $employee->getFullName());
-        } else {
-            $output->writeln('Employee not found');
-        }
+        $output->writeln('<info>Report created.</info>');
 
         return Command::SUCCESS;
     }

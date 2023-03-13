@@ -10,10 +10,11 @@ use App\Department\Domain\BonusType;
 use App\Department\Domain\Department;
 use App\Department\Domain\DepartmentRepository;
 use App\Department\Domain\SalaryBonus;
+use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
+#[AsMessageHandler]
 class NewDepartmentHandler
 {
-
     public function __construct(private readonly DepartmentRepository $repository)
     {}
     public function __invoke(NewDepartment $command): void

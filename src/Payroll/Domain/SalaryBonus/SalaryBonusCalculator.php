@@ -6,7 +6,7 @@ namespace App\Payroll\Domain\SalaryBonus;
 use App\Common\MoneyValue;
 use App\Employee\Domain\Employee;
 
-interface SalaryBonusStrategy
+interface SalaryBonusCalculator
 {
-    public function calculateBonus(\DateTimeImmutable $employmentDate, \DateTimeImmutable $date): MoneyValue;
+    public function calculateBonus(CalculationInput $input): MoneyValue;
 }

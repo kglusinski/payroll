@@ -17,4 +17,13 @@ class ORMEmployeeRepository implements EmployeeRepository
     {
         return $this->em->find(Employee::class, $id);
     }
+
+    public function findAll(): iterable
+    {
+        return $this->em->createQueryBuilder()
+            ->select('e')
+            ->from(Employee::class, 'e')
+            ->getQuery()
+            ->getResult();
+    }
 }

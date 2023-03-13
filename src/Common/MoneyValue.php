@@ -23,4 +23,9 @@ final class MoneyValue extends IntValue
     {
         return new self((int) ($this->value * $multiplier));
     }
+
+    public function add(MoneyValue $bonusValue): self
+    {
+        return new self($this->value + $bonusValue->value);
+    }
 }
