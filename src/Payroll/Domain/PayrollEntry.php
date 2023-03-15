@@ -3,17 +3,18 @@ declare(strict_types=1);
 
 namespace App\Payroll\Domain;
 
+use App\Common\Identity;
 use App\Common\MoneyValue;
 
 class PayrollEntry
 {
-    private string $employeeName;
-    private string $employeeSurname;
-    private string $department;
-    private MoneyValue $baseSalary;
-    private BonusType $bonusType;
-    private MoneyValue $bonusValue;
-    private MoneyValue $totalSalary;
+    public readonly string $employeeName;
+    public readonly string $employeeSurname;
+    public readonly string $department;
+    public readonly MoneyValue $baseSalary;
+    public readonly BonusType $bonusType;
+    public readonly MoneyValue $bonusValue;
+    public readonly MoneyValue $totalSalary;
 
     public function __construct(string $employeeName, string $employeeSurname, string $department, MoneyValue $baseSalary, BonusType $bonusType, MoneyValue $bonusValue, MoneyValue $totalSalary)
     {
@@ -24,18 +25,5 @@ class PayrollEntry
         $this->bonusType = $bonusType;
         $this->bonusValue = $bonusValue;
         $this->totalSalary = $totalSalary;
-    }
-
-
-    public function __toString(): string
-    {
-        return sprintf("%s | %s | %s | %s | %s | %s | %s",
-            $this->employeeName,
-            $this->employeeSurname,
-            $this->department,
-            $this->baseSalary,
-            $this->bonusType->toString(),
-            $this->bonusValue,
-            $this->totalSalary);
     }
 }

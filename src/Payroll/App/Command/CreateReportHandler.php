@@ -3,10 +3,12 @@ declare(strict_types=1);
 
 namespace App\Payroll\App\Command;
 
+use App\Common\Identity;
 use App\Department\App\Query\FindById;
 use App\Employee\App\Query\FindEmployed;
 use App\Payroll\App\PayrollEntryFactory;
 use App\Payroll\Domain\PayrollReport;
+use App\Payroll\Domain\PayrollReportRepository;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -16,16 +18,20 @@ class CreateReportHandler
 {
     use HandleTrait;
 
-    public function __construct(MessageBusInterface $messageBus, private readonly PayrollEntryFactory $factory)
+    public function __construct(
+        MessageBusInterface $messageBus,
+        private readonly PayrollEntryFactory $factory,
+        private readonly PayrollReportRepository $repository
+    )
     {
         $this->messageBus = $messageBus;
     }
 
-    public function __invoke(CreateReport $command): PayrollReport
+    public function __invoke(CreateReport $command): void
     {
         $employees = $this->handle(new FindEmployed());
 
-        $report = new PayrollReport();
+        $report = new PayrollReport(Identity::new(), $command->date);
 
         foreach ($employees as $employee) {
             $department = $this->handle(new FindById($employee->getDepartmentId()));
@@ -33,6 +39,6 @@ class CreateReportHandler
             $report->addPayrollEntry($this->factory->getPayrollEntry($command->date, $employee, $department));
         }
 
-        return $report;
+        $this->repository->save($report);
     }
 }

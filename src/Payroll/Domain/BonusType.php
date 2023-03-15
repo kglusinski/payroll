@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace App\Payroll\Domain;
 
-enum BonusType
+enum BonusType: string
 {
-    case PERCENT;
-    case FIXED;
+    case PERCENT = 'percentage';
+    case FIXED = 'fixed';
 
     public static function fromString(string $value): self
     {

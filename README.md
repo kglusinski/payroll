@@ -7,3 +7,7 @@ Find single employee by id
 ```bash
 $ php bin/console app:employee:find-by-id <uuid>
 ```
+
+```bash
+$ php bin/console app:payroll:get <date>
+```

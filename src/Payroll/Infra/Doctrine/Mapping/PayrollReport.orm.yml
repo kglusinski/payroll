@@ -1,0 +1,10 @@
+App\Payroll\Domain\PayrollReport:
+  type: entity
+  repositoryClass: App\Payroll\Infra\Doctrine\ORMPayrollReportRepository
+  table: reports
+
+  id:
+    id: { type: identity, length: 36 }
+  fields:
+    name: { type: string, length: 255 }
+    payrollEntries: { type: json }

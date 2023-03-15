@@ -24,6 +24,10 @@ doctrine:
                 type: yml
                 dir: "%kernel.project_dir%/src/Employee/Infra/Doctrine/Mapping"
                 prefix: App\Employee\Domain
+            Payroll:
+                type: yml
+                dir: "%kernel.project_dir%/src/Payroll/Infra/Doctrine/Mapping"
+                prefix: App\Payroll\Domain
 
 when@test:
     doctrine:

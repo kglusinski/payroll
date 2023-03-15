@@ -12,8 +12,6 @@ class FixedSalaryBonusCalculator implements SalaryBonusCalculator
 
     public function calculateBonus(CalculationInput $input): MoneyValue
     {
-        var_dump("FixedSalaryBonusCalculator", $input);
-
         $experience = $input->employmentDate->diff($input->date)->y;
 
         if ($experience === 0) {
