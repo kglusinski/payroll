@@ -15,8 +15,6 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $dep = $manager->find(Department::class, "98897ef6-f7f5-4895-ba72-27873f915f2b");
-
         // Departments
         $departmentIT = new Department(Identity::new(), "IT");
         $departmentHR = new Department(Identity::new(), "HR");
@@ -42,10 +40,40 @@ class AppFixtures extends Fixture
             new \DateTimeImmutable()
         );
 
+        $employee3 = new Employee(
+            Identity::new(),
+            "Max",
+            "Kowalsky",
+            $departmentIT->getId(),
+            MoneyValue::new(1300),
+            new \DateTimeImmutable('2020-01-01')
+        );
+
+        $employee4 = new Employee(
+            Identity::new(),
+            "Jane",
+            "Smith",
+            $departmentHR->getId(),
+            MoneyValue::new(1500),
+            new \DateTimeImmutable('2020-01-01')
+        );
+
+        $employee5 = new Employee(
+            Identity::new(),
+            "Cloe",
+            "Doe",
+            $departmentHR->getId(),
+            MoneyValue::new(1000),
+            new \DateTimeImmutable('2019-11-01')
+        );
+
         $manager->persist($departmentIT);
         $manager->persist($departmentHR);
         $manager->persist($employee);
         $manager->persist($employee2);
+        $manager->persist($employee3);
+        $manager->persist($employee4);
+        $manager->persist($employee5);
 
         $manager->flush();
     }
