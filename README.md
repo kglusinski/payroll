@@ -14,10 +14,6 @@ $ composer run start
 ```
 
 ## Commands
-Find single employee by id
-```bash
-$ php bin/console app:employee:find-by-id <uuid>
-```
 
 ```bash
 $ php bin/console app:payroll:get [date] [--options]
@@ -38,6 +34,7 @@ $ php bin/console app:payroll:get --sortBy=department --sortDir=desc --filterBy=
 ### TODO:
 - [ ] Use eg. `moneyphp/money` for `MoneyValue`
 - [ ] Add validation
+- [ ] Add separate command for generating and getting report
 - [ ] extract filtering and sorting out of the `PayrollReport`
 - [ ] Add proper error handling. Make use of `munusphp/munus`
 - [ ] More commands and queires in Employee and Department areas
