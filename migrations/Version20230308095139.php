@@ -31,7 +31,8 @@ final class Version20230308095139 extends AbstractMigration
                 id uuid NOT NULL,
                 name VARCHAR(255) NOT NULL,
                 salary_bonus_type salary_bonus_type NOT NULL,
-                salary_bonus_value int NOT NULL,
+                salary_bonus_percent_value int,
+                salary_bonus_fixed_value int,
                 PRIMARY KEY(id));
             EOD);
     }

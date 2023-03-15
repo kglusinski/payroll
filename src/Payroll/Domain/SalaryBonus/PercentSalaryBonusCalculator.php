@@ -10,6 +10,6 @@ class PercentSalaryBonusCalculator implements SalaryBonusCalculator
 {
     public function calculateBonus(CalculationInput $input): MoneyValue
     {
-        return $input->salaryBase->multiply($input->percentBonus?->getFloatValue());
+        return $input->salaryBase->multiply($input->value?->getFloatValue());
     }
 }

@@ -10,13 +10,33 @@ class SalaryBonus
 {
     public readonly BonusType $bonusType;
 
-    public readonly PercentValue|MoneyValue $value;
+    public readonly ?PercentValue $percentValue;
+    public readonly ?MoneyValue $fixedValue;
 
    private function __construct(BonusType $bonusType, PercentValue|MoneyValue $value)
    {
        $this->bonusType = $bonusType;
-       $this->value = $value;
+
+       if($bonusType === BonusType::PERCENT && $value instanceof PercentValue) {
+           $this->percentValue = $value;
+           return;
+       }
+
+       if($bonusType === BonusType::FIXED && $value instanceof MoneyValue) {
+           $this->fixedValue = $value;
+           return;
+       }
+
+       throw new \Exception('Unexpected match value');
    }
+
+    public function getValue(): PercentValue|MoneyValue
+    {
+        return match ($this->bonusType) {
+            BonusType::PERCENT => $this->percentValue,
+            BonusType::FIXED => $this->fixedValue,
+        };
+    }
 
     public static function createPercentBonus(PercentValue $value): self
     {

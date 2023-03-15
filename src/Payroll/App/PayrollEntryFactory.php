@@ -19,7 +19,7 @@ class PayrollEntryFactory
                 $employee->getEmploymentDate(),
                 $date,
                 $employee->getSalary(),
-                $department->getSalaryBonus()->value,
+                $department->getSalaryBonus()->getValue()
             )
         );
 

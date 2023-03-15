@@ -2,7 +2,11 @@ App\Department\Domain\SalaryBonus:
   type: embeddable
   fields:
     bonusType: { type: bonus, column: type, nullable: false }
-    value:
-      type: specialInt
-      nullable: false
+    percentValue:
+      type: percent
+      nullable: true
+      options: { unsigned: true }
+    fixedValue:
+      type: money
+      nullable: true
       options: { unsigned: true }

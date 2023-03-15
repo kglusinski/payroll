@@ -47,6 +47,7 @@ class GetPayrollReport extends Command
         );
 
         $output->writeln('<info>Report created.</info>');
+        $output->writeln((string) $report);
 
         return Command::SUCCESS;
     }

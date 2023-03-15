@@ -29,7 +29,7 @@ class AppFixtures extends Fixture
             "John",
             "Doe",
             $departmentIT->getId(),
-            MoneyValue::new(1000),
+            MoneyValue::new(1200),
             new \DateTimeImmutable()
         );
 

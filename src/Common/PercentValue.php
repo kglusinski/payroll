@@ -24,4 +24,9 @@ final class PercentValue extends IntValue
     {
         return $this->value / 100;
     }
+
+    public function __toString(): string
+    {
+        return $this->value . '%';
+    }
 }

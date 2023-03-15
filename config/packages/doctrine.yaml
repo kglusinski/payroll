@@ -4,8 +4,8 @@ doctrine:
         types:
             identity: App\Common\Infra\Doctrine\Type\IdentityType
             bonus: App\Common\Infra\Doctrine\Type\BonusTypeType
-            specialInt: App\Common\Infra\Doctrine\Type\SpecialIntegerType
             money: App\Common\Infra\Doctrine\Type\MoneyType
+            percent: App\Common\Infra\Doctrine\Type\PercentType
 
         # IMPORTANT: You MUST configure your server version,
         # either here or in the DATABASE_URL env var (see .env file)

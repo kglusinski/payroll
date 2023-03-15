@@ -27,4 +27,15 @@ class PayrollEntry
     }
 
 
+    public function __toString(): string
+    {
+        return sprintf("%s | %s | %s | %s | %s | %s | %s",
+            $this->employeeName,
+            $this->employeeSurname,
+            $this->department,
+            $this->baseSalary,
+            $this->bonusType->toString(),
+            $this->bonusValue,
+            $this->totalSalary);
+    }
 }

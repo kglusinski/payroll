@@ -21,4 +21,14 @@ class PayrollReport
     {
         return $this->payrollEntries;
     }
+
+    public function __toString(): string
+    {
+        $report = "Name | Surname | Department | Base salary | Bonus type | Bonus value | Total salary\n";
+        foreach ($this->payrollEntries as $payrollEntry) {
+            $report .= $payrollEntry . "\n";
+        }
+
+        return $report;
+    }
 }

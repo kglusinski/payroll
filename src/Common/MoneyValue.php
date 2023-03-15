@@ -28,4 +28,9 @@ final class MoneyValue extends IntValue
     {
         return new self($this->value + $bonusValue->value);
     }
+
+    public function __toString(): string
+    {
+        return '$' . $this->value;
+    }
 }
